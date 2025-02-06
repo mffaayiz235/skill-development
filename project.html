@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style> body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    header {
+        background: #0073e6;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: center;
+        background: #005bb5;
+        padding: 10px;
+    }
+    
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    
+    section {
+        padding: 20px;
+        margin: 20px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        color: #0073e6;
+    }
+    
+    .project {
+        border-left: 4px solid #0073e6;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 10px;
+        background: #0073e6;
+        color: white;
+        margin-top: 20px;
+    }</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+
+        <form id="studentForm">
+            <input type="text" id="name" placeholder="Student Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="grade" placeholder="Grade" required>
+            <button type="submit">Add Student</button>
+        </form>
+
+        <h2>Student List</h2>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student rows will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"> document.getElementById('studentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const grade = document.getElementById('grade').value;
+    
+        const table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+    
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+    
+        cell1.textContent = name;
+        cell2.textContent = age;
+        cell3.textContent = grade;
+    
+        // Clear the form
+        document.getElementById('name').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('grade').value = '';
+    });
+    </script>
+</body>
+</html>
